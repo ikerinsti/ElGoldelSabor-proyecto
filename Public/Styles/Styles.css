@@ -1,0 +1,9 @@
+nav{
+    background-color: #0033A0;
+}
+.navbar-nav .nav-link.active, .navbar-nav .nav-link.show, .nav-link {
+    color: white;
+}
+footer {
+    background-color: #0E2143;
+}
