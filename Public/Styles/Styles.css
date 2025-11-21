@@ -1,9 +1,60 @@
+body {
+    font-family: 'cabin', sans-serif;
+}
+
 nav{
     background-color: #0033A0;
+    font-size: 16px;
 }
 .navbar-nav .nav-link.active, .navbar-nav .nav-link.show, .nav-link {
     color: white;
 }
 footer {
     background-color: #0E2143;
+    font-size: 14px;
+}
+
+.white-text{
+    color: white;
+}
+
+.carousel-indicators {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.carousel-indicators button {
+    width: 226px;
+    height: 3px;
+    background-color: #ffffff4D;
+    border: none;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    padding: 0;
+}
+
+.carousel-indicators .active {
+    background-color: #FFFFFF;
+}
+
+.carousel-indicators button::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0%;
+    background-color: #0033A0;
+    animation: none;
+}
+
+.carousel-indicators button.active::after {
+    animation: fillIndicator 5s linear forwards;
+}
+
+@keyframes fillIndicator {
+    from { width: 0%; }
+    to   { width: 100%; }
 }

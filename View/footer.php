@@ -1,19 +1,19 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 <link rel="stylesheet" href="/elgoldelsabor/Public/Styles/Styles.css">
-<footer>
-    <div>
-        <p>PÀGINA OFICIAL © El Gol del Sabor 2025</p>
-        <p>Aviso Legal y Condiciones de Uso</p>
-        <p>Política de Privacidad</p>
-        <p>Política de cookies</p>
+<footer class="d-flex justify-content-evenly align-items-center p-2">
+    <div class="d-flex text-white justify-content-between align-items-center gap-xl-3">
+        <a href="" class="text-decoration-none text-white">PÀGINA OFICIAL © El Gol del Sabor 2025</a>
+        <a href="" class="text-decoration-none text-white">Aviso Legal y Condiciones de Uso</a>
+        <a href="" class="text-decoration-none text-white">Política de Privacidad</a>
+        <a href="" class="text-decoration-none text-white">Política de cookies</a>
     </div>
-    <div>
-        <a href="">
+    <div class="d-flex justify-content-between align-items-center gap-xl-3">
+        <a href="" class="text-decoration-none">
             <svg width="33" height="30" viewBox="0 0 33 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M24.75 2.5H20.625C18.8016 2.5 17.053 3.15848 15.7636 4.33058C14.4743 5.50269 13.75 7.0924 13.75 8.75L13.75 12.5H9.625V17.5H13.75L13.75 27.5H19.25L19.25 17.5H23.375L24.75 12.5H19.25V8.75C19.25 8.41848 19.3949 8.10054 19.6527 7.86612C19.9106 7.6317 20.2603 7.5 20.625 7.5H24.75V2.5Z" stroke="#418FDE" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
         </a>
-        <a href="">
+        <a href="" class="text-decoration-none">
             <svg width="33" height="31" viewBox="0 0 33 31" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g clip-path="url(#clip0_40_81)">
                     <mask id="mask0_40_81" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="33" height="31">
@@ -35,7 +35,7 @@
                 </defs>
             </svg>
         </a>
-        <a href="">
+        <a href="" class="text-decoration-none">
             <svg width="32" height="31" viewBox="0 0 32 31" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g clip-path="url(#clip0_40_92)">
                     <mask id="mask0_40_92" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="32" height="31">
@@ -52,7 +52,7 @@
                 </defs>
             </svg>
         </a>
-        <a href="">
+        <a href="" class="text-decoration-none">
             <svg width="32" height="31" viewBox="0 0 32 31" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <mask id="mask0_40_99" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="32" height="31">
                     <path d="M31.6425 0H0.922485L0.922485 31H31.6425L31.6425 0Z" fill="white" />
@@ -62,12 +62,14 @@
                 </g>
             </svg>
         </a>
-        <a href="">
+        <a href="" class="text-decoration-none">
             <svg width="33" height="31" viewBox="0 0 33 31" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M25.0851 2.90625H29.6355L19.6968 13.5746L31.3886 28.0938H22.2363L15.0626 19.2902L6.86421 28.0938H2.30737L12.9357 16.6807L1.72729 2.90625H11.1117L17.5892 10.9529L25.0851 2.90625ZM23.4867 25.5387H26.0068L9.73882 5.32812H7.03179L23.4867 25.5387Z" fill="#418FDE" />
             </svg>
         </a>
     </div>
-    <div></div>
+    <div>
+        <img src="/elgoldelsabor/Public/Assets/el gol del sabor color blanco footer.png" alt="logo footer" width="130px" class="">
+    </div>
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
