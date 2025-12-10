@@ -1,5 +1,3 @@
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-<link rel="stylesheet" href="/elgoldelsabor/Public/Styles/Styles.css">
 <footer class="d-flex justify-content-evenly align-items-center p-2">
     <div class="d-flex text-white justify-content-between align-items-center gap-xl-3">
         <a href="" class="text-decoration-none text-white">PÀGINA OFICIAL © El Gol del Sabor 2025</a>

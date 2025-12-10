@@ -3,6 +3,7 @@
         private $id_producto;
         private $nombre;
         private $descripcion;
+        private $img_producto;
         private $precio;
         private $id_descuento;
         private $id_categoria;
@@ -15,6 +16,9 @@
         }
         public function getDescripcion() {
             return $this->descripcion;
+        }
+        public function img_producto() {
+            return $this->img_producto;
         }
         public function getPrecio() {
             return $this->precio;

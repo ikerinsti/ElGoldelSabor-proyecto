@@ -1,21 +1,54 @@
 body {
     font-family: 'cabin', sans-serif;
+    min-height: 100vh;
 }
 
 nav{
     background-color: #0033A0;
     font-size: 16px;
 }
-.navbar-nav .nav-link.active, .navbar-nav .nav-link.show, .nav-link {
+nav ul li a:focus, nav ul li a:active {
+    background-color: #001967;
+}
+nav ul li a:hover{
+    background-color: #002586;
+}
+.navbar-nav, .navbar-nav .nav-link.show, .nav-link {
     color: white;
 }
+
+.dropdown-submenu {
+    position: relative;
+}
+
+.dropdown-submenu > .dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-left: 0.1rem;
+    margin-right: 0.1rem;
+}
+
+.dropdown-submenu > a::after {
+    content: "▶";
+    float: right;
+    margin-top: 5px;
+    font-size: 12px;
+}
+
 footer {
     background-color: #0E2143;
     font-size: 14px;
 }
 
-.white-text{
-    color: white;
+.btn-primary {
+    background-color: #0033A0;
+    border-radius: 25%;
+}
+
+.btn-secundary {
+    background-color: white;
+    color: black;
+    border-radius: 25%;
 }
 
 .carousel-indicators {
@@ -57,4 +90,21 @@ footer {
 @keyframes fillIndicator {
     from { width: 0%; }
     to   { width: 100%; }
+}
+
+.bg-color-secundario{
+    background-color: #0E2143;
+}
+.bg-color-white-neutr0{
+    background-color: #FAFBFD;
+}
+.text-primary{
+    color: #0033A0;
+}
+.text-red{
+    color: #FF0000;
+}
+.nav-link.active {
+    border-color: transparent !important;
+    border-bottom: 3px solid #0033A0 !important;
 }
