@@ -3,7 +3,7 @@
         private $id_usuario;
         private $nombre;
         private $email;
-        private $password;
+        private $contraseña;
         private $rol;
         private $direccion;
 
@@ -16,14 +16,25 @@
         public function getEmail() {
             return $this->email;
         }
-        public function getPassword() {
-            return $this->password;
+        public function getContraseña() {
+            return $this->contraseña;
         }
         public function getRol() {
             return $this->rol;
         }
         public function getDireccion() {
             return $this->direccion;
+        }
+        public function toArray() {
+            return [
+
+                'id_usuario' => $this->id_usuario,
+                'nombre' => $this->nombre,
+                'email' => $this->email,
+                'contraseña' => $this->contraseña,
+                'rol' => $this->rol,
+                'direccion' => $this->direccion
+            ];
         }
     }
 ?>

@@ -42,13 +42,21 @@ footer {
 
 .btn-primary {
     background-color: #0033A0;
-    border-radius: 25%;
+    border-radius: 25px !important;
+}
+
+.btn-primary:hover {
+    background-color: #002586;
 }
 
 .btn-secundary {
-    background-color: white;
-    color: black;
-    border-radius: 25%;
+    background-color: white !important;
+    color: black !important;
+    border-radius: 25px !important;
+}
+
+.btn-secundary:hover {
+    background-color: #CED4E1 !important;
 }
 
 .carousel-indicators {

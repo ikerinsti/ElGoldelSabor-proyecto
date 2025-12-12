@@ -9,15 +9,17 @@ class CategoriaDAO{
         $conn = database::connect();
         $stmt = $conn->prepare("SELECT * FROM categoria");
         $stmt->execute();
+
         $results = $stmt->get_result();
-        $categorias = [];
-        while ($row = $results->fetch_object('Categoria')) {
-            $categorias[] = $row;
+        $listaCategorias = [];
+
+        while ($categoria = $results->fetch_object('Categoria')) {
+            $listaCategorias[] = $categoria;
         }
 
         $stmt->close();
         $conn->close();
-        return $categorias;
+        return $listaCategorias;
     }
     public static function getCategoriasPadre(){
         $conn = database::connect();

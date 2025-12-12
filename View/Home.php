@@ -1,4 +1,4 @@
-<section id="banner-hom">
+<section id="banner-home">
     <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="0" class="active w-50" aria-current="true" aria-label="Slide 1"></button>

@@ -4,25 +4,36 @@
             Iniciar Sesión
         </h3>
 
-        <form>
+<?php
+    if (isset($_GET['error'])) {
+        ?>
+        <div class="alert alert-danger text-center">
+            Usuario o contraseña incorrectos.
+        </div>
+        <?php }
+        
+        
+        else { ?>
+        <form method="POST" action="http://localhost/ElGoldelSabor/?controller=Login&action=login">
             <!-- Usuario -->
             <div class="mb-3">
-                <label class="form-label fw-semibold">Usuario</label>
-                <input type="text" class="form-control" placeholder="Introduce tu usuario">
+                <label class="form-label fw-semibold">Correo</label>
+                <input type="text" name="email" class="form-control" required placeholder="Introduce tu Correo">
             </div>
 
             <!-- Contraseña -->
             <div class="mb-4">
                 <label class="form-label fw-semibold">Contraseña</label>
-                <input type="password" class="form-control" placeholder="Introduce tu contraseña">
+                <input type="password" name="contraseña" class="form-control" required placeholder="Introduce tu contraseña">
             </div>
 
             <!-- Botones -->
             <div class="d-flex justify-content-between">
                 <button class="btn btn-primary px-4">Entrar</button>
-                <button class="btn btn-secundary px-4">Registrarse</button>
+            </form>
+                <a href="http://localhost/ElGoldelSabor/?controller=login&action=registro" class="btn btn-secundary px-4">Registrarse</a>
             </div>
-        </form>
+    <?php } ?>
     </div>
 </section>
 <style>
@@ -30,7 +41,7 @@
     max-width: 420px;
     width: 100%;
     border-radius: 18px;
-    background: #ffffff;
+     background-color: #DFDFDF;
 }
 
 .form-control {

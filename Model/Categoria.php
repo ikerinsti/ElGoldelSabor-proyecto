@@ -17,5 +17,13 @@ class Categoria {
     public function getCategoriaPadre(){
         return $this->categoria_padre;
     }
+    public function toArray() {
+        return [
+            'id_categoria' => $this->id_categoria,
+            'nombre' => $this->nombre,
+            'descripcion' => $this->descripcion,
+            'categoria_padre' => $this->categoria_padre
+        ];
+    }
 }
 ?>
