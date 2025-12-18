@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="/elgoldelsabor/Public/Styles/Styles.css">
 <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
-        <a class="navbar-brand" href="http://localhost/ElGoldelSabor/"><img src="/elgoldelsabor/Public/Assets/El gol del sabor.png" alt="" width="50px"></a>
+        <a class="navbar-brand" href="http://localhost/ElGoldelSabor/"><img src="/elgoldelsabor/Public/Assets/ElGolDelSabor.svg" alt="" width="50px"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown">
             <span class="navbar-toggler-icon"></span>
         </button>
