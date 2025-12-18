@@ -1,6 +1,6 @@
 <?php
-include_once 'Database/Database.php';
-include_once 'categoria.php';
+include_once __DIR__ . '/../Database/Database.php';
+include_once 'Categoria.php';
 
 class CategoriaDAO{
 

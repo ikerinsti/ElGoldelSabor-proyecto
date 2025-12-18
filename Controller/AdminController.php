@@ -1,5 +1,5 @@
 <?php 
-    include_once 'Model/UsuarioDAO.php';
+    include_once __DIR__ . '/../Model/UsuarioDAO.php';
 
     class AdminController {
         public function dashboard() {
