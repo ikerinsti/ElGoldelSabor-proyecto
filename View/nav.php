@@ -59,7 +59,7 @@
                 </li>
             </ul>
             <div class="align-self-end d-flex gap-4 p-3">
-                <a href="" style="text-decoration: none;">
+                <a href="?controller=carrito&action=index" style="text-decoration: none;">
                     <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M0.9375 1.875C0.417969 1.875 0 2.29297 0 2.8125C0 3.33203 0.417969 3.75 0.9375 3.75H2.70703C2.85938 3.75 2.98828 3.85938 3.01562 4.00781L5.05078 15.1914C5.29297 16.5273 6.45703 17.5 7.81641 17.5H17.8125C18.332 17.5 18.75 17.082 18.75 16.5625C18.75 16.043 18.332 15.625 17.8125 15.625H7.81641C7.36328 15.625 6.97656 15.3008 6.89453 14.8555L6.69531 13.75H18.5547C19.7578 13.75 20.7891 12.8945 21.0117 11.7109L22.2227 5.23047C22.3672 4.46094 21.7773 3.75 20.9922 3.75H4.87109L4.85547 3.67188C4.66797 2.63281 3.76172 1.875 2.70312 1.875H0.9375ZM8.125 22.5C9.16016 22.5 10 21.6602 10 20.625C10 19.5898 9.16016 18.75 8.125 18.75C7.08984 18.75 6.25 19.5898 6.25 20.625C6.25 21.6602 7.08984 22.5 8.125 22.5ZM16.875 22.5C17.9102 22.5 18.75 21.6602 18.75 20.625C18.75 19.5898 17.9102 18.75 16.875 18.75C15.8398 18.75 15 19.5898 15 20.625C15 21.6602 15.8398 22.5 16.875 22.5Z" fill="white" />
                     </svg>
@@ -79,19 +79,6 @@
                         </defs>
                     </svg>
                 </a>
-                <?php if (isset($_SESSION['id_usuario'])) {
-                    if ($_SESSION['rol'] == 'admin') {
-                        echo "estoy logueado como admin";
-                        ?><a href="http://localhost/ElGoldelSabor/?controller=Login&action=logout">Cerrar session</a>
-                    <?php
-                    } else {
-                        echo "estoy logueado como usuario";
-                    ?><a href="http://localhost/ElGoldelSabor/?controller=Login&action=logout">Cerrar session</a>
-                <?php
-                    }
-                } else {
-                    echo "no estoy logueado";
-                } ?>
             </div>
         </div>
     </div>

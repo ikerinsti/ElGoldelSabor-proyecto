@@ -24,7 +24,8 @@ class CategoriaDAO{
     public static function getCategoriasPadre(){
         $conn = database::connect();
         $stmt = $conn->prepare("SELECT * FROM categoria WHERE categoria_padre = ?");
-        $stmt->bind_param("i", null);
+        $null = null;
+        $stmt->bind_param("i", $null);
         $stmt->execute();
         $results = $stmt->get_result();
         $categorias = [];

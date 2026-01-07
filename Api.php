@@ -5,6 +5,9 @@ include_once 'Controller/LoginController.php';
 include_once 'Controller/AdminController.php';
 include_once 'Controller/UserController.php';
 include_once 'Controller/ApiController.php';
+include_once 'Controller/ProductoController.php';
+include_once 'Controller/CarritoController.php';
+include_once 'Controller/PedidoController.php';
 
 if (session_status() == PHP_SESSION_NONE) {
     session_start();

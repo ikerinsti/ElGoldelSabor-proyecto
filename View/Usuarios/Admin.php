@@ -1,15 +1,20 @@
 <section class="d-flex">
+
+
     <!-- SIDEBAR -->
     <div id="sidebar" class="sidebar">
         <ul class="sidebar-menu list-unstyled m-0 p-0">
+
             <li class="sidebar-item">
-                <button id="btn-inicio" class="sidebar-btn active" data-target="#div-inicio"
+                <button id="btn-pedidos" class="sidebar-btn active" data-target="#div-pedidos"
                     data-remove-class="visually-hidden">
-                    <!-- Icono Home -->
+                    <!-- Icono Pedidos -->
                     <svg width="22" height="22" fill="currentColor" viewBox="0 0 16 16">
-                        <path d="M8 3l6 6h-2v4H4v-4H2l6-6z" />
+                        <path d="M3 0a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1H3zm0 
+                        1h10v14H3V1zm2 2h6v1H5V3zm0 2h6v1H5V5zm0 2h6v1H5V7zm0 2h6v1H5V9zm0 2h6v1H5v-1z" />
                     </svg>
-                    <span>Inicio</span>
+
+                    <span>Pedidos</span>
                 </button>
             </li>
 
@@ -21,17 +26,6 @@
                         <path d="M2 2h12v12H2z" />
                     </svg>
                     <span>Productos</span>
-                </button>
-            </li>
-
-            <li class="sidebar-item">
-                <button id="btn-categorias" class="sidebar-btn" data-target="#div-categorias"
-                    data-remove-class="visually-hidden">
-                    <!-- Icono Categorías -->
-                    <svg width="22" height="22" fill="currentColor" viewBox="0 0 16 16">
-                        <path d="M4 4h8v2H4zM4 7h8v2H4zM4 10h8v2H4z" />
-                    </svg>
-                    <span>Categorías</span>
                 </button>
             </li>
 
@@ -48,27 +42,39 @@
         </ul>
     </div>
 
-    <div id="div-inicio" class="d-principal visually-hidden w-75">
 
-    </div>
-    <div id="div-producos" class="d-principal visually-hidden w-75">
+    <!-- CONTENIDO PRINCIPAL -->
 
-    </div>
-    <div id="div-categorias" class="d-principal visually-hidden w-75">
-        <?php
-        $listaCategorias = CategoriaDAO::getCategorias();
-        foreach ($listaCategorias as $categoria) {
-            echo "<li>" . $categoria->getNombre() . "</li>";
-        }
-        ?>
-    </div>
-    <div id="div-usuarios" class="d-principal visually-hidden w-75">
-        <h2>Usuarios</h2>
-        <div id="usuariosList" class="list-group">
+    <div id="div-pedidos" class="d-principal w-75">
+        <h2 class="m-3">Pedidos</h2>
+        <div id="pedidosList" class="list-group m-3">
 
         </div>
     </div>
+
+    <div id="div-productos" class="d-principal visually-hidden w-75">
+        <h2 class="m-3">Productos</h2>
+        <div class="m-3">
+            <button class="btn btn-primary" onclick="abrirModalProducto()">Nuevo Producto</button>
+        </div>
+        <div id="productosList" class="list-group m-3">
+
+        </div>
+    </div>
+
+    <div id="div-usuarios" class="d-principal visually-hidden w-75">
+        <h2 class="m-3">Usuarios</h2>
+        <div id="usuariosList" class="list-group m-3">
+
+        </div>
+        <a href="http://localhost/ElGoldelSabor/?controller=Login&action=logout" class="btn bg-secondary text-decoration-none text-white m-3">Cerrar session</a>
+    </div>
 </section>
+
+
+
+<!-- MODAL USUARIO -->
+
 <div class="modal fade" id="modalUsuario" tabindex="-1">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -121,7 +127,7 @@
                 </div>
 
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">Guardar</button>
+                    <button type="submit" class="btn btn-primary" onclick="actualizarUsuario()">Guardar</button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
                         Cancelar
                     </button>
@@ -133,169 +139,113 @@
     </div>
 </div>
 
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-    // Cargar la lista de usuarios al inicio
-    cargarUsuarios();
 
-    // Inicializar el formulario de edición UNA sola vez
-    const form = document.getElementById("formUsuario");
-    form.addEventListener("submit", function(e) {
-        e.preventDefault();
+<!-- MODAL PEDIDOS -->
 
-        const formData = new FormData(this);
+<div class="modal fade" id="modalPedido" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form id="formPedido">
+                <div class="modal-header">
+                    <h5 class="modal-title">Editar Pedido</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" id="pedido_id">
 
-        fetch('index.php?controller=api&action=editUsuario', {
-            method: "POST",
-            body: formData
-        })
-        .then(res => res.json())
-        .then(res => {
-            if(res.ok){
-                // Recargar lista de usuarios
-                cargarUsuarios();
-
-                // Cerrar modal correctamente
-                const modalEl = document.getElementById('modalUsuario');
-                const modal = bootstrap.Modal.getInstance(modalEl);
-                if(modal) modal.hide();
-
-                alert("Usuario actualizado");
-            } else {
-                alert("Error: " + res.error);
-            }
-        })
-        .catch(err => console.error("Error al actualizar usuario:", err));
-    });
-
-    // Inicializar el sidebar
-    new SidebarController("#sidebar");
-});
-
-// Función para cargar usuarios desde la API
-function cargarUsuarios() {
-    fetch('index.php?controller=api&action=getUsuarios')
-        .then(res => res.json())
-        .then(usuarios => {
-            const container = document.getElementById('usuariosList');
-            container.innerHTML = ""; // Limpiar antes de cargar
-
-            usuarios.forEach(usuario => {
-                const usuarioDiv = document.createElement('div');
-                usuarioDiv.classList.add('list-group-item', 'd-flex', 'justify-content-between', 'align-items-center');
-
-                usuarioDiv.innerHTML = `
-                    <div>
-                        <strong>${usuario.nombre}</strong> - ${usuario.email} - Rol: ${usuario.rol}
+                    <div class="mb-3">
+                        <label class="form-label">Cliente</label>
+                        <p class="form-control-plaintext" id="pedido_cliente_texto"></p>
                     </div>
-                    <div>
-                        <button class="btn btn-sm btn-warning me-2" onclick="editarUsuario(${usuario.id_usuario})">Editar</button>
-                        <button class="btn btn-sm btn-danger" onclick="eliminarUsuario(${usuario.id_usuario})">Eliminar</button>
+
+                    <div class="mb-3">
+                        <label for="pedido_fecha" class="form-label">Fecha</label>
+                        <input type="date" id="pedido_fecha" class="form-control">
                     </div>
-                `;
 
-                container.appendChild(usuarioDiv);
-            });
-        })
-        .catch(err => console.error("Error cargando usuarios:", err));
-}
+                    <div class="mb-3">
+                        <label for="pedido_estado" class="form-label">Estado</label>
+                        <input type="text" id="pedido_estado" class="form-control" required>
+                    </div>
 
-// Función para abrir el modal y rellenar los campos para editar
-function editarUsuario(id) {
-    fetch(`index.php?controller=api&action=getUsuarioById&id=${id}`)
-        .then(res => res.json())
-        .then(usuario => {
-            if (usuario.error) {
-                alert(usuario.error);
-                return;
-            }
+                    <div class="mb-3">
+                        <label for="pedido_total" class="form-label">Total (€)</label>
+                        <input type="number" step="0.01" id="pedido_total" class="form-control" required>
+                    </div>
 
-            document.getElementById('usuario_id').value = usuario.id_usuario;
-            document.getElementById('usuario_nombre').value = usuario.nombre;
-            document.getElementById('usuario_email').value = usuario.email;
-            document.getElementById('usuario_direccion').value = usuario.direccion;
+                    <div class="mb-3">
+                        <label for="pedido_direccion" class="form-label">Dirección</label>
+                        <input type="text" id="pedido_direccion" class="form-control">
+                    </div>
+                    <input type="hidden" id="pedido_id_usuario">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 
-            const selectRol = document.getElementById('usuario_rol');
-            selectRol.selectedIndex = 0;
-            selectRol.options[0].text = `Rol actual: ${usuario.rol}`;
 
-            // Abrir modal
-            const modalEl = document.getElementById('modalUsuario');
-            const modal = new bootstrap.Modal(modalEl);
-            modal.show();
-        })
-        .catch(err => console.error("Error al cargar usuario:", err));
-}
+<!-- MODAL PRODUCTO -->
+<div class="modal fade" id="modalProducto" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form id="formProducto">
+                <div class="modal-header">
+                    <h5 class="modal-title">Editar Producto</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" id="producto_id">
 
-// Función para eliminar un usuario
-function eliminarUsuario(id) {
-    if (!confirm("¿Seguro que quieres eliminar este usuario?")) return;
+                    <div class="mb-3">
+                        <label>Nombre</label>
+                        <input type="text" id="producto_nombre" class="form-control" required>
+                    </div>
 
-    const formData = new FormData();
-    formData.append('id', id);
+                    <div class="mb-3">
+                        <label>Descripción</label>
+                        <textarea id="producto_descripcion" class="form-control" required></textarea>
+                    </div>
 
-    fetch('index.php?controller=api&action=deleteUsuario', {
-        method: "POST",
-        body: formData
-    })
-    .then(res => res.json())
-    .then(res => {
-        if (res.ok) {
-            alert("Usuario eliminado");
-            cargarUsuarios();
-        } else {
-            alert("Error: " + res.error);
-        }
-    })
-    .catch(err => console.error("Error al eliminar usuario:", err));
-}
+                    <div class="mb-3">
+                        <label>Imagen (URL)</label>
+                        <input type="text" id="producto_img" class="form-control" required>
+                    </div>
 
-// SidebarController tal como lo tenías
-class SidebarController {
-    constructor(sidebarSelector) {
-        this.sidebar = document.querySelector(sidebarSelector);
-        this.buttons = this.sidebar.querySelectorAll(".sidebar-btn");
-        this.initEvents();
-    }
+                    <div class="mb-3">
+                        <label>Precio (€)</label>
+                        <input type="number" step="0.01" id="producto_precio" class="form-control" required>
+                    </div>
 
-    initEvents() {
-        this.buttons.forEach(btn => {
-            btn.addEventListener("click", () => this.onButtonClick(btn));
-        });
-    }
+                    <div class="mb-3">
+                        <label>Descuento (ID)</label>
+                        <input type="number" id="producto_id_descuento" class="form-control">
+                    </div>
 
-    onButtonClick(btn) {
-        this.clearActiveButtons();
-        this.setActiveButton(btn);
-        this.updateTargetDiv(btn);
-    }
+                    <div class="mb-3">
+                        <label>Categoría (ID)</label>
+                        <input type="number" id="producto_id_categoria" class="form-control" required>
+                    </div>
 
-    clearActiveButtons() {
-        this.buttons.forEach(b => b.classList.remove("active"));
-    }
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 
-    setActiveButton(btn) {
-        btn.classList.add("active");
-    }
 
-    updateTargetDiv(btn) {
-        const targetSelector = btn.dataset.target;
-        const classToRemove = btn.dataset.removeClass;
-
-        if (!targetSelector || !classToRemove) return;
-
-        const targetDiv = document.querySelector(targetSelector);
-
-        document.querySelectorAll(".d-principal").forEach(div => {
-            div.classList.add(classToRemove);
-        });
-
-        if (targetDiv) {
-            targetDiv.classList.remove(classToRemove);
-        }
-    }
-}
-</script>
+<script src="Public/JS/SideBar.JS"></script>
+<script src="Public/JS/AdminUsers.JS"></script>
+<script src="Public/JS/AdminPedidos.JS"></script>
+<script src="Public/JS/AdminProductos.JS"></script>
 
 <style>
     #layout {
