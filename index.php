@@ -8,6 +8,7 @@ include_once 'Controller/ApiController.php';
 include_once 'Controller/ProductoController.php';
 include_once 'Controller/CarritoController.php';
 include_once 'Controller/PedidoController.php';
+include_once 'Controller/ContactoController.php';
 
 if (session_status() == PHP_SESSION_NONE) {
     session_start();

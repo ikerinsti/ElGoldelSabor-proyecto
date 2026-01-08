@@ -44,18 +44,7 @@
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="?controller=Contacto&action=index&" data-bs-toggle="dropdown">Contacto</a>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <a class="dropdown-item" href="?controller=Carta&action=index&cat=Entrantes">Entrantes</a>
-                        </li>
-                        <li>
-                            <a class="dropdown-item" href="?controller=Carta&action=index&cat=Espetos">Espetos</a>
-                        </li>
-                        <li>
-                            <a class="dropdown-item" href="?controller=Carta&action=index&cat=Carnes">Carnes</a>
-                        </li>
-                    </ul>
+                    <a class="nav-link dropdown-toggle" href="?controller=Contacto&action=index">Contacto</a>
                 </li>
             </ul>
             <div class="align-self-end d-flex gap-4 p-3">
