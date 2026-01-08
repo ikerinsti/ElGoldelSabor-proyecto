@@ -1,6 +1,6 @@
 <?php
-include_once 'Database/Database.php';
-include_once 'categoria.php';
+include_once __DIR__ . '/../Database/Database.php';
+include_once 'Categoria.php';
 
 class CategoriaDAO{
 
@@ -24,7 +24,8 @@ class CategoriaDAO{
     public static function getCategoriasPadre(){
         $conn = database::connect();
         $stmt = $conn->prepare("SELECT * FROM categoria WHERE categoria_padre = ?");
-        $stmt->bind_param("i", null);
+        $null = null;
+        $stmt->bind_param("i", $null);
         $stmt->execute();
         $results = $stmt->get_result();
         $categorias = [];

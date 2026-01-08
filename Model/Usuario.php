@@ -31,7 +31,6 @@
                 'id_usuario' => $this->id_usuario,
                 'nombre' => $this->nombre,
                 'email' => $this->email,
-                'contraseña' => $this->contraseña,
                 'rol' => $this->rol,
                 'direccion' => $this->direccion
             ];
