@@ -1,11 +1,18 @@
-<footer class="d-flex justify-content-evenly align-items-center p-2">
-    <div class="d-flex text-white justify-content-between align-items-center gap-xl-3">
-        <a href="" class="text-decoration-none text-white">PÀGINA OFICIAL © El Gol del Sabor 2025</a>
-        <a href="" class="text-decoration-none text-white">Aviso Legal y Condiciones de Uso</a>
-        <a href="" class="text-decoration-none text-white">Política de Privacidad</a>
-        <a href="" class="text-decoration-none text-white">Política de cookies</a>
-    </div>
-    <div class="d-flex justify-content-between align-items-center gap-xl-3">
+<footer class="container-fluid py-3 px-4">
+    <div class="row align-items-center">
+
+        <!-- Links legales -->
+        <div class="col-12 col-lg-6 mb-3 mb-lg-0">
+            <div class="d-flex flex-wrap gap-3 text-white small">
+                <a href="" class="text-decoration-none text-white">PÀGINA OFICIAL © El Gol del Sabor 2025</a>
+                <a href="" class="text-decoration-none text-white">Aviso Legal y Condiciones de Uso</a>
+                <a href="" class="text-decoration-none text-white">Política de Privacidad</a>
+                <a href="" class="text-decoration-none text-white">Política de cookies</a>
+            </div>
+        </div>
+
+        <!-- Redes sociales -->
+        <div class="d-flex justify-content-between align-items-center gap-3">
         <a href="" class="text-decoration-none">
             <svg width="33" height="30" viewBox="0 0 33 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M24.75 2.5H20.625C18.8016 2.5 17.053 3.15848 15.7636 4.33058C14.4743 5.50269 13.75 7.0924 13.75 8.75L13.75 12.5H9.625V17.5H13.75L13.75 27.5H19.25L19.25 17.5H23.375L24.75 12.5H19.25V8.75C19.25 8.41848 19.3949 8.10054 19.6527 7.86612C19.9106 7.6317 20.2603 7.5 20.625 7.5H24.75V2.5Z" stroke="#418FDE" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round" />
@@ -66,8 +73,16 @@
             </svg>
         </a>
     </div>
-    <div>
-        <img src="/elgoldelsabor/Public/Assets/el gol del sabor color blanco footer.png" alt="logo footer" width="130px" class="">
+
+        <!-- Logo -->
+        <div class="col-12 col-lg-2 text-lg-end text-center">
+            <img src="/elgoldelsabor/Public/Assets/el gol del sabor color blanco footer.png"
+                 alt="logo footer"
+                 width="130">
+        </div>
+
     </div>
 </footer>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script>
